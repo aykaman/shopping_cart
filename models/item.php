@@ -5,11 +5,11 @@ namespace ShoppingCart;
 class Item
 {
     /**
-     * Item Product
+     * Item Id
      *
-     * @var string $product
+     * @var string $id
      */
-    protected $product;
+    protected $id;
 
     /**
      * Item name
@@ -26,20 +26,37 @@ class Item
     protected $price;
 
     /**
+     * Item rating
+     *
+     * @var string $rating
+     */
+    protected $rating;
+
+    /**
      * @param string $product Item Product
      * @param string $name Item name
      * @param string $price Item price with two digits after decimal point, e.g. '123.00'
+     * @param integer $name Item rating
      *
      * @throws \Exception When the price format is invalid
      */
-    public function __construct($product, $name, $price)
+    public function __construct($id, $name, $price, $rating)
     {
-        $this->setproduct($product);
+        $this->setId($id);
         $this->setName($name);
         $this->setPrice($price);
+        $this->setPrice($rating);
     }
 
     // Setters
+
+    /**
+     * @param integer $product
+     */
+    public function setId($id)
+    {
+        $this->id = (integer)$id;
+    }
 
     /**
      * @param string $name
@@ -50,22 +67,21 @@ class Item
     }
 
     /**
-     * @param string $product
-     */
-    public function setproduct($product)
-    {
-        $this->product = (string)$product;
-    }
-
-    /**
-     * @param string $price Item price with two digits after decimal point, e.g. '123.00'
+     * @param double $price Item price with two digits after decimal point, e.g. '123.00'
      *
-     * @throws \Exception When the price format is invalid
      */
     public function setPrice($price)
     {
-        $this->validateAmountFormat($price);
-        $this->price = (string)$price;
+        $this->price = (double)$price;
+    }
+
+     /**
+     * @param integer $rating Item rating
+     *
+     */
+    public function setRating($rating)
+    {
+        $this->rating = $rating;
     }
 
     // Getters
@@ -73,9 +89,9 @@ class Item
     /**
      * @return string
      */
-    public function getproduct()
+    public function getId()
     {
-        return $this->product;
+        return $this->id;
     }
 
     /**
@@ -95,18 +111,10 @@ class Item
     }
 
     /**
-     * Validate amount format
-     *
-     * Checks if amount is a number with two digits after decimal point
-     *
-     * @param mixed $amount
-     *
-     * @throws \Exception When the amount format is invalid
+     * @return integer
      */
-    protected function validateAmountFormat($amount)
+    public function getRating()
     {
-        if (! preg_match('/^\d+\.\d{2}$/', $amount)) {
-            throw new \Exception('Invalid amount format');
-        }
+        return $this->rating;
     }
 }

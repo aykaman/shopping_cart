@@ -22,16 +22,16 @@ class Cart implements Iterator, Countable
     protected $position = 0;
 
     /**
-     * For storing the products, as a convenience
+     * For storing the Ids, as a convenience
      *
-     * @var array $products
+     * @var array $ids
      */
-    protected $products = [];
+    protected $ids = [];
 
 
     public function __construct()
     {
-        $this->currency = $currency;
+        
     }
 
     /**
@@ -45,16 +45,16 @@ class Cart implements Iterator, Countable
     }
 
     /**
-     * Gets an item with given product from the cart
+     * Gets an item with given id from the cart
      *
-     * @param string $product
+     * @param integer $id
      *
      * @return array
      */
-    public function getItem($product)
+    public function getItem($id)
     {
-        if (isset($this->items[$product])) {
-            $item = $this->items[$product];
+        if (isset($this->items[$id])) {
+            $item = $this->items[$id];
         } else {
             $item = [];
         }
@@ -69,13 +69,13 @@ class Cart implements Iterator, Countable
      */
     public function addItem(Item $item)
     {
-        $product = $item->getproduct();
+        $id = $item->getId();
 
-        if (isset($this->items[$product])) {
-            $this->updateItem($item, $this->items[$product]['qty'] + 1);
+        if (isset($this->items[$id])) {
+            $this->updateItem($item, $this->items[$id]['qty'] + 1);
         } else {
-            $this->items[$product] = array('item' => $item, 'qty' => 1);
-            $this->products[] = $product;
+            $this->items[$id] = array('item' => $item, 'qty' => 1);
+            $this->ids[] = $id;
         }
     }
 
@@ -87,12 +87,12 @@ class Cart implements Iterator, Countable
      */
     public function updateItem(Item $item, $qty)
     {
-        $product = $item->getProduct();
+        $id = $item->getId();
 
         if ($qty === 0) {
             $this->deleteItem($item);
-        } elseif (($qty > 0) && ($qty != $this->items[$product]['qty'])) {
-            $this->items[$product]['qty'] = $qty;
+        } elseif (($qty > 0) && ($qty != $this->items[$id]['qty'])) {
+            $this->items[$id]['qty'] = $qty;
         }
 
     }
@@ -104,16 +104,16 @@ class Cart implements Iterator, Countable
      */
     public function deleteItem(Item $item)
     {
-        $product = $item->getProduct();
+        $id = $item->getId();
 
-        if (isset($this->items[$product])) {
-            unset($this->items[$product]);
+        if (isset($this->items[$id])) {
+            unset($this->items[$id]);
 
-            $index = array_search($product, $this->products);
-            unset($this->products[$index]);
+            $index = array_search($id, $this->ids);
+            unset($this->ids[$index]);
 
             // Recreate array to prevent holes:
-            $this->products = array_values($this->products);
+            $this->ids = array_values($this->ids);
         }
     }
 
@@ -165,7 +165,7 @@ class Cart implements Iterator, Countable
      */
     public function current()
     {
-        $index = $this->products[$this->position];
+        $index = $this->ids[$this->position];
 
         return $this->items[$index];
 
@@ -204,6 +204,6 @@ class Cart implements Iterator, Countable
      */
     public function valid()
     {
-        return (isset($this->products[$this->position]));
+        return (isset($this->ids[$this->position]));
     }
 }
