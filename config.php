@@ -1,13 +1,15 @@
 <?php
+  define('DB_HOST', 'srv-pleskdb33.ps.kz:3306');
+  define('DB_NAME', 'nemonsco_shopping_cart');
+  define('DB_CHARSET', 'utf8');
+  define('DB_USER', 'nemon_shop');
+  define('DB_PASSWORD', 'L@r@vel123');
 
-ini_set('session.use_cookies', true);
-ini_set('session.save_path', '/var/lib/php7/');
+  define('PATH_MOD', __DIR__ . '/models');
 
-$con = mysql_connect('srv-pleskdb33.ps.kz:3306', 'nemon_shop', 'L@r@vel123') 
-or die("Database is down");
-
-//select a database to work with
-mysql_select_db("nemonsco_shopping_cart", $con);
-mysql_set_charset("utf8", $con);
-
+  session_start();
+  if (!is_array($_SESSION['cart'])) 
+  { 
+    $_SESSION['cart'] = []; 
+  }
 ?>
