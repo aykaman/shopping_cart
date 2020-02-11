@@ -16,4 +16,5 @@
   {
     $_SESSION["balance"] = 100.00;
   }
+  die('config');
 ?>
