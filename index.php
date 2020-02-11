@@ -6,7 +6,7 @@
       <div class="row">
         
         <?php
-          $productLib = new Product();
+          $productLib = new Products();
           $products = $productLib->get();
           if (count($products) > 0)
           {
