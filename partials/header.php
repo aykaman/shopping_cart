@@ -1,5 +1,4 @@
 <?php
-  die('header');
   include("../config.php");
   require PATH_MOD . "db.php";
   require PATH_MOD . "products.php";
