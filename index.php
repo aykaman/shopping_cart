@@ -10,7 +10,6 @@
           $products = $productLib->get();
           if (count($products) > 0)
           {
-            echo count($products);
             foreach ($products as $p)
             {
         ?>
