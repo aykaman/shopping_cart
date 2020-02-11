@@ -18,22 +18,26 @@
                   <div class="card h-100 bg-light">
                       <img src="images/<?= $p['image'] ?>" />
                       <div class="card-body">
-                      <div class="cart-title">
+                        <div class="cart-title">
                           <h4><?= $p['name'] ?></h4>
                           <h5>$<?= number_format((float)$p['price'], 2, '.', '') ?></h5>
                           <small class="text-muted"
                           >&#9733; &#9733; &#9733; &#9733; &#9734;</small
                           >
-                      </div>
+                        </div>
                       </div>
                       <div class="card-footer">
-                      <input type="button" class="btn btn-primary" onclick="cart.add(<?= $row['product_id'] ?>);" value="Add to cart">
+                        <input type="button" class="btn btn-primary" onclick="cart.add(<?= $row['product_id'] ?>);" value="Add to cart">
                       </div>
                   </div>
                 </div>
         
         <?php
             }
+          } 
+          else 
+          {
+            echo "No products found.";
           }
         ?>
       </div>

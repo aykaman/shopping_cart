@@ -33,9 +33,9 @@
       <form class="form-inline text-white">
         <span class="pr-2">Balance:</span>
         <span class="badge badge-danger mr-3"><?= $_SESSION["balance"] ?></span>
-        <a href="myCart.php" class="btn btn-warning">
+        <a class="btn btn-warning" id="page-cart-icon" onclick="cart.toggle();">
           My cart <i class="fa fa-shopping-cart"></i>
-          <span class="cart-count badge badge-secondary">0</span>
+          <span class="cart-count badge badge-secondary" id="page-cart-count">0</span>
         </a>
       </form>
     </nav>
