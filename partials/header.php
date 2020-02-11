@@ -1,7 +1,7 @@
 <?php
-  include(__DIR__ . "/config.php");
-  require PATH_MOD . "db.php";
-  require PATH_MOD . "products.php";
+  require __DIR__ . "/config.php";
+  require PATH_MOD . "/db.php";
+  require PATH_MOD . "/products.php";
 ?>
 
 <!DOCTYPE html>
