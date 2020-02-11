@@ -43,7 +43,7 @@
       </div>
 
       <div class="row">
-        <div id="page-cart" class="ninja"></div>
+        <div id="page-cart" class="cart"></div>
       </div>
     </div>
 

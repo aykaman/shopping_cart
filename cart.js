@@ -57,19 +57,19 @@ var cart = {
     var pgPdt = document.getElementById("page-products"),
       pgCart = document.getElementById("page-cart");
 
-    if (reload || pgCart.classList.contains("ninja")) {
+    if (reload || pgCart.classList.contains("cart")) {
       cart.ajax({
         url: "cartRouter.php",
         data: { req: "show" },
         target: "page-cart",
         load: function() {
-          pgPdt.classList.add("ninja");
-          pgCart.classList.remove("ninja");
+          pgPdt.classList.add("cart");
+          pgCart.classList.remove("cart");
         }
       });
     } else {
-      pgPdt.classList.remove("ninja");
-      pgCart.classList.add("ninja");
+      pgPdt.classList.remove("cart");
+      pgCart.classList.add("cart");
     }
   },
 
