@@ -1,5 +1,5 @@
 <?php
-  require __DIR__ . "/config.php";
+  include("../config.php");
   require PATH_MOD . "/db.php";
   require PATH_MOD . "/products.php";
 ?>
@@ -32,7 +32,7 @@
       <form class="form-inline text-white">
         <span class="pr-2">Balance:</span>
         <span class="badge badge-danger mr-3"><?= $_SESSION["balance"] ?></span>
-        <a href="myCart.html" class="btn btn-warning">
+        <a href="myCart.php" class="btn btn-warning">
           My cart <i class="fa fa-shopping-cart"></i>
           <span class="cart-count badge badge-secondary">0</span>
         </a>
