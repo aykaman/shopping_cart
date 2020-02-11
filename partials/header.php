@@ -1,5 +1,5 @@
 <?php
-  include(__DIR__ . "config.php");
+  include(__DIR__ . "config.php") or die('config issue');
   require PATH_MOD . "db.php";
   require PATH_MOD . "products.php";
 ?>
