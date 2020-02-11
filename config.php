@@ -1,5 +1,4 @@
 <?php
-  die('config');
   define('DB_HOST', 'srv-pleskdb33.ps.kz:3306');
   define('DB_NAME', 'nemonsco_shopping_cart');
   define('DB_CHARSET', 'utf8');
