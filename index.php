@@ -20,7 +20,7 @@
                       <div class="card-body">
                       <div class="cart-title">
                           <h4><?= $p['name'] ?></h4>
-                          <h5>$<?= $p['price'] ?></h5>
+                          <h5>$<?= round($p['price'],2) ?></h5>
                           <small class="text-muted"
                           >&#9733; &#9733; &#9733; &#9733; &#9734;</small
                           >
