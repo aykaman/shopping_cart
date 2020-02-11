@@ -1,5 +1,5 @@
 <?php
-  include("../config.php");
+  include("config.php");
   require PATH_MOD . "/db.php";
   require PATH_MOD . "/products.php";
 ?>
