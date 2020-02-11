@@ -2,7 +2,6 @@
   include("../config.php");
   require PATH_MOD . "db.php";
   require PATH_MOD . "products.php";
-  if (!isset($_SESSION["balance"])) $_SESSION["balance"] = 100.00;
 ?>
 
 <!DOCTYPE html>

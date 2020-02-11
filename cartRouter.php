@@ -90,8 +90,8 @@ switch ($_POST['req'])
   // There are no error & security checks in this simple example
   // You may also want to add more of your own checkout procedures here
   case "checkout":
-    require PATH_LIB . "2b-lib-db.php";
-    require PATH_LIB . "4c-lib-cart.php";
+    require PATH_MOD . "db.php";
+    require PATH_MOD . "cart.php";
     $cartLib = new Cart();
     if ($cartLib->checkout($_POST['name'], $_POST['email'])) {
       $_SESSION['cart'] = [];
@@ -104,8 +104,8 @@ switch ($_POST['req'])
   /* [ALTERNATIVE CHECKOUT] */
   // This version sends an email to the customer on successful checkout
   case "checkout-email":
-    require PATH_LIB . "2b-lib-db.php";
-    require PATH_LIB . "4c-lib-cart.php";
+  require PATH_MOD . "db.php";
+  require PATH_MOD . "cart.php";
     $cartLib = new Cart();
     if ($cartLib->checkout($_POST['name'], $_POST['email'])) {
       $_SESSION['cart'] = [];

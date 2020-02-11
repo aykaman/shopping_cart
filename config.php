@@ -12,4 +12,8 @@
   { 
     $_SESSION['cart'] = []; 
   }
+  if (!isset($_SESSION["balance"])) 
+  {
+    $_SESSION["balance"] = 100.00;
+  }
 ?>
